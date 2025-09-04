@@ -61,7 +61,7 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+      <div className="min-h-screen flex items-center justify-center bg-stone-800 text-white">
         <p className="text-xl">Loading questions...</p>
       </div>
     );
@@ -69,8 +69,8 @@ function App() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
-        <p className="text-red-400 mb-4">{error}</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-red-900 text-white">
+        <p className="text-black-400 mb-4">{error}</p>
         <button
           className="bg-gradient-to-r from-indigo-600 to-purple-600 py-3 px-6 rounded-lg font-medium shadow-lg cursor-pointer"
           onClick={restartQuiz}
@@ -82,7 +82,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-stone-800 text-white flex flex-col items-center justify-center p-4">
       {showConfetti && <Confetti />}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-purple-600 mb-2">React Quiz</h1>
