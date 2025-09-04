@@ -4,15 +4,22 @@ import { useState } from "react";
 import Confetti from "react-confetti";
 import QuestionCard from "./components/QuestionCard";
 import useQuestions from "./hooks/useQuestions";
+import QuizSetup from "./components/QuizSetup";
 
 function App() {
-  const { questions,loading, error, reloadQuestions } = useQuestions();
+  
+  const [quizConfig, setQuizConfig] = useState(null);
+  
+  const { questions,loading, error, reloadQuestions } = useQuestions(quizConfig);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
+  if (!quizConfig) {
+  return <QuizSetup startQuiz={setQuizConfig} />;
+}
 
   const handleAnswer = (option) => {
     if (showFeedback) return;
@@ -81,7 +88,6 @@ function App() {
         <h1 className="text-4xl font-bold text-purple-600 mb-2">React Quiz</h1>
         <p className="text-gray-400">Test your knowledge</p>
       </div>
-
       <div className="w-full max-w-xl mb-6">
         <div className="bg-gray-700 h-3 rounded-full overflow-hidden">
           <div
