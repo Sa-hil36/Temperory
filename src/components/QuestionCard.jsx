@@ -8,6 +8,8 @@ const QuestionCard = ({
   current,
   total,
 }) => {
+  if(!data) return null;
+
   const { question, options, answer } = data;
 
   const getButtonStyle = (option) => {
